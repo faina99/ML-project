@@ -23,7 +23,7 @@ jobs:
 
       - name: Run test
         run: |
-          pytest ./app/test-example.py
+          pytest ./test-exercice/test-operation.py
 
   build:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
           docker login --username ben8t --password ${{secrets.GH_PAT}} ghcr.io
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/ben8t/ml_orchestration:latest ./app
+        run: docker build -t ghcr.io/ben8t/ml_orchestration:latest ./test-exercice
 
       - name: Push Docker image
         run: docker push ghcr.io/ben8t/ml_orchestration:latest

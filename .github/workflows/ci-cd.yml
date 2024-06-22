@@ -1,0 +1,23 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login
+        run: |
+          docker login --username ben8t --password ${{secrets.GH_PAT}} ghcr.io
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/ben8t/ml_orchestration:latest ./app
+
+      - name: Push Docker image
+        run: docker push ghcr.io/ben8t/ml_orchestration:latest

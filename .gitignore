@@ -1,0 +1,6 @@
+.DS_Store
+airflow/.env
+airflow/dags/
+airflow/logs/
+kestra/.DS_Store
+test-exercice/__pycache__/**

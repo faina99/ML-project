@@ -23,7 +23,7 @@ jobs:
 
       - name: Run test
         run: |
-          pytest ./test-exercice/test-operation.py
+          pytest ./test-exercice/test-operations.py
 
   build:
     runs-on: ubuntu-latest
